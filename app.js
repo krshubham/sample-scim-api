@@ -7,14 +7,14 @@ const scimRouter = require('./routes/scim');
 
 var app = express();
 
-app.use(logger(':date, :remote-addr, :url, :status, :response-time ms'));
+app.use(logger(':date, :remote-addr, :method, :url, :status, :response-time ms'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  console.log(req.body);
+  console.log(req);
   if (req.headers.authorization == null) {
     res.status(401).send("Not allowed without basic auth").end();
   } else {
