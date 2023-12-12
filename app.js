@@ -1,19 +1,17 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 var logger = require('morgan');
 
 const scimRouter = require('./routes/scim');
 
 var app = express();
 
-app.use(logger(':method :url :status :res[content-length] - :response-time ms'));
+app.use(logger(':date, :resource, :remote-addr, :url, :status, :response-time ms'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json())
 
 app.use((req, res, next) => {
   console.log(req.body);

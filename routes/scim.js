@@ -21,6 +21,10 @@ router.get('/Groups', (req, res) => {
   })
 });
 
+router.post('/Users', (req, res) => {
+  res.json(req.body);
+});
+
 router.get('/Users/:userId', function(req, res, next) {
   res.json({
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
