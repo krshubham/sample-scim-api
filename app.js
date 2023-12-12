@@ -8,7 +8,7 @@ const scimRouter = require('./routes/scim');
 
 var app = express();
 
-app.use(logger('dev'));
+app.use(logger(':method :url :status :res[content-length] - :response-time ms'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
