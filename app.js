@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  console.log(req);
+  console.log(req.body);
   if (req.headers.authorization == null) {
     res.status(401).send("Not allowed without basic auth").end();
   } else {
