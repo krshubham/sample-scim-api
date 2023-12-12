@@ -23,6 +23,7 @@ router.get('/Groups', (req, res) => {
 
 router.post('/Users', (req, res) => {
   res.json(req.body);
+  res.status(200);
 });
 
 router.get('/Users/:userId', function(req, res, next) {
